@@ -9,8 +9,8 @@ stage('Payment Testsuite Execution'){
 				 credentialsId: 'ea4c3770-b2ed-4639-9ffc-cc3e586e454c']
 			  ]
 			])  
-			sh 'sudo chmod 755 gradlew'
-                         sh 'sudo ./gradlew ' +
+			
+                        bat ' ./gradlew ' +
                        "-Dorg.gradle.java.home=$JAVA_VERSION " +
                        "test -Ppayment"
 			 publishHTML([reportDir: 'test-output', reportFiles: 'PaymentServiceReport.html', reportName: 'Payment Test-suite Report'])

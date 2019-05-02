@@ -10,7 +10,7 @@ stage('Payment Testsuite Execution'){
 			  ]
 			])  
 			
-                        bat ' ./gradle ' +
+                        bat ' gradle ' +
                        "clean build " +
                        "test -Ppayment"
 			 publishHTML([reportDir: 'test-output', reportFiles: 'PaymentServiceReport.html', reportName: 'Payment Test-suite Report'])

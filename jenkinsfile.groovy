@@ -12,7 +12,7 @@ stage('Payment Testsuite Execution'){
 			
                         bat ' gradlew ' +
                       
-                       "test -i -Ppayment"
+                       "clean test -i -Ppayment"
 	
 			 publishHTML([reportDir: 'test-output', reportFiles: 'PaymentServiceReport.html', reportName: 'Payment Test-suite Report'])
 		  }

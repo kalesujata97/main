@@ -14,7 +14,7 @@ stage('Payment Testsuite Execution'){
                        "clean build " +
 			
                        "test -i -Ppayment"
-	echo gradlew -version
+	
 			 publishHTML([reportDir: 'test-output', reportFiles: 'PaymentServiceReport.html', reportName: 'Payment Test-suite Report'])
 		  }
       }

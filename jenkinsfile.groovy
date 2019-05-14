@@ -15,6 +15,6 @@ stage('Payment Testsuite Execution'){
                        "clean test -i -Ppayment"
 	
 			 publishHTML([reportDir: 'test-output', reportFiles: 'PaymentServiceReport.html', reportName: 'Payment Test-suite Report'])
-			emailext attachmentsPattern: '\'**/*.html', body: '', subject: 'Test Report', to: 'kale.babanrao@happiestminds.com'
+			emailext attachmentsPattern: '\'**/*.html', body: '', subject: 'Test Report', to: 'kalesujata97@gmail.com'
 }
       }

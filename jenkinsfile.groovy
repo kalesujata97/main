@@ -1,7 +1,10 @@
-node{
-stage('Payment Testsuite Execution'){
+pipeline {
+    agent any
+    
+    stages {
+		stage('Payment Testsuite Execution'){
 
-
+			steps{
 			checkout([$class: 'GitSCM',
 			  branches: [[name: '*/master']],
 			  userRemoteConfigs: [
@@ -15,11 +18,13 @@ stage('Payment Testsuite Execution'){
                        "clean test -i -Ppayment"
 	
 			 publishHTML([reportDir: 'test-output', reportFiles: 'PaymentServiceReport.html', reportName: 'Payment Test-suite Report'])
-			
-}
+			}
+		}
+	    
+	}
 	post {
     always {
         emailext body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test', to: 'kale.babanrao@happiestminds.com'
+    	}
     }
 }
-      }

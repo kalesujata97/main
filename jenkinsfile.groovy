@@ -19,7 +19,7 @@ node {
             emailext (
             body: "Test Report", 
             subject: "Test Report", 
-            to: "kale.babanrao@happiestminds.com",
+            to: "kalesujata1997@gmail.com",
 	    from: "kalesujata97@gmail.com" )
         }
 }

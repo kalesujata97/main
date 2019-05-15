@@ -12,15 +12,11 @@ node {
                  "clean test -i -Ppayment"
 	
 		publishHTML([reportDir: 'test-output', reportFiles: 'PaymentServiceReport.html', reportName: 'Payment Test-suite Report'])
-		 emailext (
-			 body: 'A Test EMail', 
-			 subject: 'Test', 
-			)
 	}
 	stage('Email')
         {
             env.ForEmailPlugin = env.WORKSPACE      
-            emailext attachmentsPattern: 'test-output\\*.html',      
+            emailext attachmentsPattern: 'PaymentServiceReport.html',      
             body: '''${SCRIPT, template="groovy_html.template"}''', 
             subject: currentBuild.currentResult + " : " + env.JOB_NAME, 
             to: 'kale.babanrao@happiestminds.com',

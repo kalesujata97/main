@@ -15,8 +15,8 @@ node {
 	}
 	stage('Email')
         {
-            env.ForEmailPlugin = env.WORKSPACE      
-            emailext attachmentsPattern: "test-output/PaymentServiceReport.html",      
+           // env.ForEmailPlugin = env.WORKSPACE      
+            emailext 
             body: "Test Report", 
             subject: "Test Report", 
             to: "kalesujata97@gmail.com",

@@ -12,6 +12,10 @@ node {
                  "clean test -i -Ppayment"
 	
 		publishHTML([reportDir: 'test-output', reportFiles: 'PaymentServiceReport.html', reportName: 'Payment Test-suite Report'])
-		 emailext body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test', to: 'kale.babanrao@happiestminds.com'	
+		 emailext (
+			 body: 'A Test EMail', 
+			 subject: 'Test', 
+			 to: 'kale.babanrao@happiestminds.com',
+			 from: 'kalesujata97@gmail.com')
 	}
 }

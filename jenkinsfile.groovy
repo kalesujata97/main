@@ -19,7 +19,7 @@ node {
             emailext ( attachmentsPattern: "test-output/PaymentServiceReport.html", 
             body: "Test Report", 
             subject: "Test Report", 
-            to: "kalesujata1997@gmail.com",
-	    from: "kalesujata97@gmail.com" )
+            to: "kale.babanrao@happiestminds.com",
+	     )
         }
 }

@@ -15,6 +15,11 @@ stage('Payment Testsuite Execution'){
                        "clean test -i -Ppayment"
 	
 			 publishHTML([reportDir: 'test-output', reportFiles: 'PaymentServiceReport.html', reportName: 'Payment Test-suite Report'])
-			emailext body: 'Hello', subject: 'Test Report', to: 'kale.babanrao@happiestminds.com'
+			
+}
+	post {
+    always {
+        emailext body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test', to: 'kale.babanrao@happiestminds.com'
+    }
 }
       }

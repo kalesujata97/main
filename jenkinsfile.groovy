@@ -15,7 +15,15 @@ node {
 		 emailext (
 			 body: 'A Test EMail', 
 			 subject: 'Test', 
-			 to: 'kale.babanrao@happiestminds.com',
-			 from: 'kalesujata97@gmail.com')
+			)
 	}
+	stage('Email')
+        {
+            env.ForEmailPlugin = env.WORKSPACE      
+            emailext attachmentsPattern: 'test-output\\*.html',      
+            body: '''${SCRIPT, template="groovy_html.template"}''', 
+            subject: currentBuild.currentResult + " : " + env.JOB_NAME, 
+            to: 'kale.babanrao@happiestminds.com',
+	    from: 'kalesujata97@gmail.com'
+        }
 }

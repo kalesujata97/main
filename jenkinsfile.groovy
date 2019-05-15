@@ -16,10 +16,10 @@ node {
 	stage('Email')
         {
            // env.ForEmailPlugin = env.WORKSPACE      
-            emailext 
+            emailext (
             body: "Test Report", 
             subject: "Test Report", 
             to: "kalesujata97@gmail.com",
-	    from: "kalesujata97@gmail.com"
+	    from: "kalesujata97@gmail.com" )
         }
 }

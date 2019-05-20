@@ -27,7 +27,7 @@ node {
    // ws('C:\\Apps\\Jenkins\\jobs\\trial') {
     // requires SonarQube Scanner 2.8+
     def scannerHome = tool 'sonarScanner';
-    withSonarQubeEnv('SonarQube 7.7') {
+    withSonarQubeEnv('sonar') {
       bat "${scannerHome}/bin/windows-x86-64/StartSonar.bat"
     }
   

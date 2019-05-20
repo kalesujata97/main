@@ -30,6 +30,6 @@ node {
     withSonarQubeEnv('SonarQube 6.2') {
       bat "${scannerHome}/bin/StartSonar.bat"
     }
-  }
+  
 }
 }

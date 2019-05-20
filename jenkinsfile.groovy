@@ -28,7 +28,7 @@ node {
     // requires SonarQube Scanner 2.8+
     def scannerHome = tool 'sonarScanner';
     withSonarQubeEnv('sonar') {
-	   bat "mvn -Dsonar.analysis.mode=preview"
+	   bat "mvn -Dsonar.analysis.mode validate"
       bat "${scannerHome}/StartSonar.bat"
     }
   

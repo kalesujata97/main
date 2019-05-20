@@ -23,15 +23,13 @@ node {
             
 	     )
         }
-	stage('Sonarqube analysis') 
-	{   
-    		script 
-		{
-             		scannerHome = tool 'SonarScanner';
-        	}
-     		withSonarQubeEnv('SonarQube') 
-		{
-         		bat "${scannerHome}/bin/sonar-scanner.bat" 
-   		 }		
-        }
+	stage('SonarQube analysis') {
+    ws('C:\\Apps\\Jenkins\\jobs\\trial') {
+    // requires SonarQube Scanner 2.8+
+    def scannerHome = tool 'sonarScanner';
+    withSonarQubeEnv('SonarQube 6.2') {
+      bat "${scannerHome}/bin/sonar-scanner.bat"
+    }
+  }
+}
 }

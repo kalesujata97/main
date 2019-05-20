@@ -28,7 +28,7 @@ node {
     // requires SonarQube Scanner 2.8+
     def scannerHome = tool 'sonarScanner';
     withSonarQubeEnv('sonar') {
-	   bat "gradle -Dsonar.analysis.mode "
+	   bat "gradlew -Dsonar.analysis.mode "
       bat "${scannerHome}/StartSonar.bat"
     }
   

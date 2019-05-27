@@ -13,7 +13,7 @@ node {
 	
 		publishHTML([reportDir: 'test-output', reportFiles: 'PaymentServiceReport.html', reportName: 'Payment Test-suite Report'])
 	}
-	stage('Email')
+/*	stage('Email')
         {
             env.ForEmailPlugin = env.WORKSPACE      
             emailext ( attachmentsPattern: "test-output/PaymentServiceReport.html", 
@@ -32,5 +32,5 @@ node {
       bat "${scannerHome}/StartSonar.bat"
     }
   
-}
+}*/
 }

@@ -9,7 +9,7 @@ node {
 			
                  bat ' gradlew ' +
                       
-                 "clean test -Ppayment"
+                 "clean test -Ppayment -Dsuite=SMOKE_TEST -Denvironment=QA"
 	
 		publishHTML([reportDir: 'test-output', reportFiles: 'PaymentServiceReport.html', reportName: 'Payment Test-suite Report'])
 	}

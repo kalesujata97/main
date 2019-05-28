@@ -37,7 +37,7 @@ node {
                  "clean build test -Ppayment --refresh-dependencies "
 	
 		publishHTML([reportDir: 'test-output', reportFiles: 'PaymentServiceReport.html', reportName: 'Payment Test-suite Report'])
-		//bat label: '', script: 'echo test-output/testng-results.xml'
+		bat label: '', script: 'echo << test-output/testng-*.xml'
 		step $class: 'JUnitResultArchiver', testResults: 'test-output/testng-*.xml'
 		getTestSummary()
 		

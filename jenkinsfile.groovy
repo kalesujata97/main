@@ -9,7 +9,7 @@ def getTestSummary = { ->
 
     if (testResultAction != null) {
       def  total = testResultAction.getTotalCount()
-      def  failed = testResultAction.getFailCount()
+      def  failed = testResultAction.getPassCount()
       def  skipped = testResultAction.getSkipCount()
 	   
 	

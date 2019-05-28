@@ -15,9 +15,9 @@ node {
 		publishHTML([reportDir: 'test-output', reportFiles: 'PaymentServiceReport.html', reportName: 'Payment Test-suite Report'])
 		
 		AbstractTestResultAction testResultAction =  currentBuild.rawBuild.getAction(AbstractTestResultAction.class)
-
-   def testResult =currentBuild.testResultAction.result
-		println(testResult)
+		println(testResultAction)
+   		 def total = testResultAction.totalCount
+		println(total)
 	currentBuild.result = 'UNSTABLE'
 	}
 	/*stage('Email')

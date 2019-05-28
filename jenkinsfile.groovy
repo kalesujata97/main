@@ -34,7 +34,7 @@ node {
                  "clean test -Ppayment "
 	
 		publishHTML([reportDir: 'test-output', reportFiles: 'PaymentServiceReport.html', reportName: 'Payment Test-suite Report'])
-		bat label: '', script: 'type nul >> test-output/testng-results.xml'
+		bat label: '', script: 'echo >> test-output/testng-results.xml'
 		step $class: 'JUnitResultArchiver', testResults: 'test-output/testng-results.xml'
 		testSummary = getTestSummary()
 		println(testSummary)

@@ -13,9 +13,10 @@ node {
 	
 		publishHTML([reportDir: 'test-output', reportFiles: 'PaymentServiceReport.html', reportName: 'Payment Test-suite Report'])
 		
-		def testResult = build.testResultAction
-		def total = testResult.totalCount
-		//println("No. of tests=",total)
+		AbstractTestResultAction testResultAction =  currentBuild.rawBuild.getAction(AbstractTestResultAction.class)
+if (testResultAction != null) {
+    echo "Tests: ${testResultAction.failCount} / ${testResultAction.failureDiffString} failures of ${testResultAction.totalCount}.\n\n" 
+}
 		currentBuild.result = 'UNSTABLE'
 	}
 	stage('Email')

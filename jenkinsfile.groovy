@@ -38,7 +38,7 @@ node {
 	
 		publishHTML([reportDir: 'test-output', reportFiles: 'PaymentServiceReport.html', reportName: 'Payment Test-suite Report'])
 		
-        	powershell 'ls "test-output\\*.*" | foreach-object { $_.LastWriteTime = Get-Date }'
+        	
 		step $class: 'JUnitResultArchiver', testResults: 'test-output/testng-*.xml'
 		getTestSummary()
 		

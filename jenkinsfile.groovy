@@ -14,7 +14,7 @@ node {
 	
 		publishHTML([reportDir: 'test-output', reportFiles: 'PaymentServiceReport.html', reportName: 'Payment Test-suite Report'])
 		
-		AbstractTestResultAction testResultAction =  currentBuild.getAction(AbstractTestResultAction.class)
+		AbstractTestResultAction testResultAction =  currentBuild.rawBuild.getAction(AbstractTestResultAction.class)
 		println(testResultAction)
    		 def total = testResultAction.totalCount
 		println(total)

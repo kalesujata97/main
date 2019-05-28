@@ -15,10 +15,9 @@ node {
 		publishHTML([reportDir: 'test-output', reportFiles: 'PaymentServiceReport.html', reportName: 'Payment Test-suite Report'])
 		
 		AbstractTestResultAction testResultAction =  currentBuild.rawBuild.getAction(AbstractTestResultAction.class)
-if (testResultAction != null) {
+
     echo "Tests: ${testResultAction.failCount} / ${testResultAction.failureDiffString} failures of ${testResultAction.totalCount}.\n\n" 
-}
-		currentBuild.result = 'UNSTABLE'
+	currentBuild.result = 'UNSTABLE'
 	}
 	stage('Email')
         {

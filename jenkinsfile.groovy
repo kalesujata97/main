@@ -7,9 +7,10 @@ def getTestSummary = { ->
     def summary = ""
 
     if (testResultAction != null) {
-        total = testResultAction.getTotalCount()
-        failed = testResultAction.getFailCount()
-        skipped = testResultAction.getSkipCount()
+      def  total = testResultAction.getTotalCount()
+      def  failed = testResultAction.getFailCount()
+      def  skipped = testResultAction.getSkipCount()
+	   
 	
 	    println("Total No. Of Tests:::"+total)
         summary = "Passed: " + (total - failed - skipped)

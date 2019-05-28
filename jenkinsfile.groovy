@@ -3,6 +3,7 @@ import hudson.tasks.junit.CaseResult
 
 def getTestSummary = { ->
     def testResultAction = currentBuild.rawBuild.getAction(AbstractTestResultAction.class)
+	print(testResultAction)
     def summary = ""
 
     if (testResultAction != null) {

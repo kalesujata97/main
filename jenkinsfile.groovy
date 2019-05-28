@@ -38,7 +38,8 @@ node {
 	
 		publishHTML([reportDir: 'test-output', reportFiles: 'PaymentServiceReport.html', reportName: 'Payment Test-suite Report'])
 		
-        	
+        	bat ' echo >> test-output/testng-failed.xml'
+		bat ' echo >> test-output/testng-failed.xml'
 		step $class: 'JUnitResultArchiver', testResults: 'test-output/testng-*.xml'
 		getTestSummary()
 		

@@ -4,7 +4,7 @@ import hudson.tasks.junit.CaseResult
 
 def getTestSummary = { ->
     def testResultAction = currentBuild.rawBuild.getAction(AbstractTestResultAction.class)
-	print(testResultAction)
+	
     def summary = ""
 
     if (testResultAction != null) {
@@ -19,7 +19,7 @@ def getTestSummary = { ->
         summary = summary + (", Skipped: " + skipped)
 	    
 	    if (failed==0)
-	     	currentBuild.result="SUCCESS"
+	     	currentBuild.result="UNSTABLE"
 	    else
 		currentBuild.result="UNSTABLE"   
     } else {

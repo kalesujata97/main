@@ -16,6 +16,8 @@ node {
 		
 		AbstractTestResultAction testResultAction =  currentBuild.rawBuild.getAction(AbstractTestResultAction.class)
 		println(testResultAction)
+		 def childReports = testResultAction.getChildReports();
+		print(childReports)
    		 def total = testResultAction.totalCount
 		println(total)
 	currentBuild.result = 'UNSTABLE'

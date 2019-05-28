@@ -38,7 +38,7 @@ node {
 	
 		publishHTML([reportDir: 'test-output', reportFiles: 'PaymentServiceReport.html', reportName: 'Payment Test-suite Report'])
 		//bat label: '', script: 'echo test-output/testng-results.xml'
-		step $class: 'JUnitResultArchiver', testResults: 'test-output/testng-results.xml'
+		step $class: 'JUnitResultArchiver', testResults: 'test-output/TEST-*.xml'
 		getTestSummary()
 		
 	

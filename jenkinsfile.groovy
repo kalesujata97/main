@@ -9,14 +9,15 @@ def getTestSummary = { ->
         total = testResultAction.getTotalCount()
         failed = testResultAction.getFailCount()
         skipped = testResultAction.getSkipCount()
-
+	
+	    println("Total"+total)
         summary = "Passed: " + (total - failed - skipped)
         summary = summary + (", Failed: " + failed)
         summary = summary + (", Skipped: " + skipped)
     } else {
         summary = "No tests found"
     }
-    return summary
+   println(testSummary)
 }
 
 
@@ -36,8 +37,8 @@ node {
 		publishHTML([reportDir: 'test-output', reportFiles: 'PaymentServiceReport.html', reportName: 'Payment Test-suite Report'])
 		bat label: '', script: 'echo >> test-output/testng-results.xml'
 		step $class: 'JUnitResultArchiver', testResults: 'test-output/testng-results.xml'
-		testSummary = getTestSummary()
-		println(testSummary)
+		getTestSummary()
+		
 	
 	}
 	/*stage('Email')

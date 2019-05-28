@@ -39,7 +39,7 @@ node {
 		publishHTML([reportDir: 'test-output', reportFiles: 'PaymentServiceReport.html', reportName: 'Payment Test-suite Report'])
 		
 		def timestamp = System.currentTimeMillis()
-        	test.testResultsDir.eachFile { it.lastModified = timestamp }
+        	getReports().getJunitXml().getDestination().eachFile { it.lastModified = timestamp }
 		step $class: 'JUnitResultArchiver', testResults: 'test-output/testng-*.xml'
 		getTestSummary()
 		

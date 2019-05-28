@@ -15,17 +15,17 @@ node {
 		
 		
 	}
-/*	stage('Email')
+	stage('Email')
         {
             env.ForEmailPlugin = env.WORKSPACE      
             emailext ( attachmentsPattern: "test-output/PaymentServiceReport.html", 
-            body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}", 
+            body: " ${SCRIPT, template="groovy-html.template"}", 
             subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
 	    to: "kale.babanrao@happiestminds.com"
             
 	     )
         }
-	stage('SonarQube analysis') {
+/*	stage('SonarQube analysis') {
    // ws('C:\\Apps\\Jenkins\\jobs\\trial') {
     // requires SonarQube Scanner 2.8+
     def scannerHome = tool 'sonarScanner';

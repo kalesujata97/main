@@ -34,6 +34,7 @@ node {
                  "clean test -Ppayment "
 	
 		publishHTML([reportDir: 'test-output', reportFiles: 'PaymentServiceReport.html', reportName: 'Payment Test-suite Report'])
+		touch test-output/testng-results.xml
 		step $class: 'JUnitResultArchiver', testResults: 'test-output/testng-results.xml'
 		testSummary = getTestSummary()
 		println(testSummary)

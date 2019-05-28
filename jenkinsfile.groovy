@@ -33,7 +33,7 @@ node {
 			
                  bat ' gradlew ' +
                       
-                 "clean test -Ppayment "
+                 "clean build test -Ppayment "
 	
 		publishHTML([reportDir: 'test-output', reportFiles: 'PaymentServiceReport.html', reportName: 'Payment Test-suite Report'])
 		//bat label: '', script: 'echo >> test-output/testng-results.xml'

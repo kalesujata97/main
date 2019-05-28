@@ -19,7 +19,7 @@ def getTestSummary = { ->
         summary = summary + (", Skipped: " + skipped)
 	    
 	    if (failed==0)
-	     	currentBuild.result="UNSTABLE"
+	     	currentBuild.result="SUCCESS"
 	    else
 		currentBuild.result="UNSTABLE"   
     } else {

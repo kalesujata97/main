@@ -1,3 +1,4 @@
+import hudson.tasks.test.AbstractTestResultAction
 node {
 	stage('Payment Testsuite Execution'){
 		checkout([$class: 'GitSCM',

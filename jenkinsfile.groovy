@@ -24,7 +24,7 @@ node {
 	    to: "kale.babanrao@happiestminds.com"
             
 	     )
-		currentBuild.result = 'FAILURE'
+		currentBuild.result = 'UNSTABLE'
         }
 /*	stage('SonarQube analysis') {
    // ws('C:\\Apps\\Jenkins\\jobs\\trial') {

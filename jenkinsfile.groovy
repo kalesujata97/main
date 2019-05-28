@@ -19,9 +19,7 @@ node {
         {
             env.ForEmailPlugin = env.WORKSPACE      
             emailext ( attachmentsPattern: "test-output/PaymentServiceReport.html", 
-            body: ''
-    '${SCRIPT, template="groovy-html.template"}'
-    '', 
+            body: " ${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}", 
             subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
 	    to: "kale.babanrao@happiestminds.com"
             

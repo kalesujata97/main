@@ -1,6 +1,13 @@
 import hudson.tasks.test.AbstractTestResultAction
 import hudson.tasks.junit.CaseResult
 
+def speedUp = '--configure-on-demand --daemon --parallel'
+def nebulaReleaseScope = (env.GIT_BRANCH == 'origin/master') ? '' : "-Prelease.scope=patch"
+def nebulaRelease = "-x prepare -x release snapshot ${nebulaReleaseScope}"
+def gradleDefaultSwitches = "${speedUp} ${nebulaRelease}"
+def gradleAdditionalTestTargets = "integrationTest"
+def gradleAdditionalSwitches = "shadowJar"
+
 def getTestSummary = { ->
     def testResultAction = currentBuild.rawBuild.getAction(AbstractTestResultAction.class)
 	print(testResultAction)
@@ -34,7 +41,7 @@ node {
 			
                  bat ' gradlew ' +
                       
-                 "clean build test -Ppayment --refresh-dependencies "
+                 "clean ${gradleDefaultSwitches} clean build ${gradleAdditionalTestTargets} ${gradleAdditionalSwitches} test -Ppayment --refresh-dependencies "
 	
 		publishHTML([reportDir: 'test-output', reportFiles: 'PaymentServiceReport.html', reportName: 'Payment Test-suite Report'])
 		

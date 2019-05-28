@@ -13,7 +13,7 @@ node {
 	
 		publishHTML([reportDir: 'test-output', reportFiles: 'PaymentServiceReport.html', reportName: 'Payment Test-suite Report'])
 		
-		
+		currentBuild.result = 'UNSTABLE'
 	}
 	stage('Email')
         {
@@ -24,7 +24,7 @@ node {
 	    to: "kale.babanrao@happiestminds.com"
             
 	     )
-		currentBuild.result = 'UNSTABLE'
+		
         }
 /*	stage('SonarQube analysis') {
    // ws('C:\\Apps\\Jenkins\\jobs\\trial') {

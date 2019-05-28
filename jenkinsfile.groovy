@@ -13,13 +13,7 @@ node {
 	
 		publishHTML([reportDir: 'test-output', reportFiles: 'PaymentServiceReport.html', reportName: 'Payment Test-suite Report'])
 		
-		def e2e = build job:Payment Testsuite Execution, propagate: false
-           	result = e2e.result
-           	if (result.equals("SUCCESS")) {
-			echo "SUCCESS"
-           	} else {
-             	 error 'FAIL' //sh "exit 1" // this fails the stage
-           }
+		
 	}
 /*	stage('Email')
         {

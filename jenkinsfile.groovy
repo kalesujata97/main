@@ -11,7 +11,7 @@ def getTestSummary = { ->
         failed = testResultAction.getFailCount()
         skipped = testResultAction.getSkipCount()
 	
-	    println("Total"+total)
+	    println("Total No. Of Tests:::"+total)
         summary = "Passed: " + (total - failed - skipped)
         summary = summary + (", Failed: " + failed)
         summary = summary + (", Skipped: " + skipped)

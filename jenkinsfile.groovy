@@ -40,7 +40,7 @@ node {
 			
                  bat ' gradlew ' +
                       
-                 "clean test -i -Ppayment  "
+                 "clean test -Ppayment  "
 	
 		publishHTML([reportDir: 'test-output', reportFiles: 'PaymentServiceReport.html', reportName: 'Payment Test-suite Report'])
 		

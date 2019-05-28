@@ -16,7 +16,8 @@ node {
 		
 		AbstractTestResultAction testResultAction =  currentBuild.rawBuild.getAction(AbstractTestResultAction.class)
 
-    echo "Tests: ${testResultAction.failCount} / ${testResultAction.failureDiffString} failures of ${testResultAction.totalCount}.\n\n" 
+   def testResult = manager.build.testResultAction.result
+		println(testResult)
 	currentBuild.result = 'UNSTABLE'
 	}
 	stage('Email')

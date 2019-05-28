@@ -37,7 +37,7 @@ node {
 		step $class: 'JUnitResultArchiver', testResults: 'test-output/testng-results.xml'
 		testSummary = getTestSummary()
 		println(testSummary)
-	currentBuild.result = 'UNSTABLE'
+	
 	}
 	/*stage('Email')
         {

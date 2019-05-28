@@ -24,6 +24,7 @@ node {
 	    to: "kale.babanrao@happiestminds.com"
             
 	     )
+		currentBuild.result = 'FAILURE'
         }
 /*	stage('SonarQube analysis') {
    // ws('C:\\Apps\\Jenkins\\jobs\\trial') {

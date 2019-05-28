@@ -1,4 +1,6 @@
 import hudson.tasks.test.AbstractTestResultAction
+import hudson.tasks.junit.CaseResult
+
 node {
 	stage('Payment Testsuite Execution'){
 		checkout([$class: 'GitSCM',
@@ -14,12 +16,8 @@ node {
 	
 		publishHTML([reportDir: 'test-output', reportFiles: 'PaymentServiceReport.html', reportName: 'Payment Test-suite Report'])
 		
-		AbstractTestResultAction testResultAction =  currentBuild.rawBuild.getAction(hudson.tasks.test.AggregatedTestResultAction.class);
-
-		println(testResultAction)
-		 def childReports = testResultAction.getChildReports();
-		print(childReports)
-   		 def total = testResultAction.totalCount
+		def testResultAction = currentBuild.rawBuild.getAction(AbstractTestResultAction.class)
+		total = testResultAction.getTotalCount()
 		println(total)
 	currentBuild.result = 'UNSTABLE'
 	}

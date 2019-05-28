@@ -14,7 +14,7 @@ node {
 	
 		publishHTML([reportDir: 'test-output', reportFiles: 'PaymentServiceReport.html', reportName: 'Payment Test-suite Report'])
 		
-		AbstractTestResultAction testResultAction =  build.getAction(hudson.tasks.test.AggregatedTestResultAction.class);
+		AbstractTestResultAction testResultAction =  currentBuild.rawBuild.getAction(hudson.tasks.test.AggregatedTestResultAction.class);
 
 		println(testResultAction)
 		 def childReports = testResultAction.getChildReports();

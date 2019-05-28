@@ -16,7 +16,7 @@ node {
 		
 		AbstractTestResultAction testResultAction =  currentBuild.rawBuild.getAction(AbstractTestResultAction.class)
 
-   def testResult = build.testResultAction.result
+   def testResult =currentBuild.testResultAction.result
 		println(testResult)
 	currentBuild.result = 'UNSTABLE'
 	}

@@ -37,7 +37,9 @@ node {
                  "clean build test -Ppayment --refresh-dependencies "
 	
 		publishHTML([reportDir: 'test-output', reportFiles: 'PaymentServiceReport.html', reportName: 'Payment Test-suite Report'])
-		bat label: '', script: 'echo << test-output/testng-*.xml'
+		
+		def timestamp = System.currentTimeMillis()
+        	test.testResultsDir.eachFile { it.lastModified = timestamp }
 		step $class: 'JUnitResultArchiver', testResults: 'test-output/testng-*.xml'
 		getTestSummary()
 		

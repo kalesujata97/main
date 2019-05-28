@@ -17,7 +17,7 @@ def getTestSummary = { ->
     } else {
         summary = "No tests found"
     }
-   println(testSummary)
+   println(summary)
 }
 
 

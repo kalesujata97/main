@@ -20,7 +20,7 @@ node {
 		println(testResult)
 	currentBuild.result = 'UNSTABLE'
 	}
-	stage('Email')
+	/*stage('Email')
         {
             env.ForEmailPlugin = env.WORKSPACE      
             emailext ( attachmentsPattern: "test-output/PaymentServiceReport.html", 
@@ -30,7 +30,7 @@ node {
             
 	     )
 		
-        }
+        }*/
 /*	stage('SonarQube analysis') {
    // ws('C:\\Apps\\Jenkins\\jobs\\trial') {
     // requires SonarQube Scanner 2.8+

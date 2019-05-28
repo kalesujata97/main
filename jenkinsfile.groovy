@@ -13,8 +13,7 @@ node {
 	
 		publishHTML([reportDir: 'test-output', reportFiles: 'PaymentServiceReport.html', reportName: 'Payment Test-suite Report'])
 		
-		def result = build.getAction(hudson.tasks.junit.TestResultAction.class).result
-		println(result)
+		
 	}
 /*	stage('Email')
         {

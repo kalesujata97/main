@@ -17,6 +17,11 @@ def getTestSummary = { ->
         summary = "Passed: " + (total - failed - skipped)
         summary = summary + (", Failed: " + failed)
         summary = summary + (", Skipped: " + skipped)
+	    
+	    if (failed==0)
+	     	currentBuild.result="SUCCESS"
+	    else
+		currentBuild.result="UNSTABLE"   
     } else {
         summary = "No tests found"
     }

@@ -15,7 +15,7 @@ node {
 		
 		def testResult = build.testResultAction
 		def total = testResult.totalCount
-		println("No. of tests=",total)
+		//println("No. of tests=",total)
 		currentBuild.result = 'UNSTABLE'
 	}
 	stage('Email')

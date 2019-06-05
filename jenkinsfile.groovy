@@ -64,10 +64,10 @@ node {
 	stage('SonarQube analysis') {
    // ws('C:\\Apps\\Jenkins\\jobs\\trial') {
     // requires SonarQube Scanner 2.8+
-    def scannerHome = tool 'sonarScanner';
+    //def scannerHome = tool 'sonarScanner';
     withSonarQubeEnv('sonar') {
 	   bat "gradlew -Dsonar.analysis.mode "
-      bat "${scannerHome}/StartSonar.bat"
+     // bat "${scannerHome}/StartSonar.bat"
     }
   
 }

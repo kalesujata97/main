@@ -69,6 +69,6 @@ node {
 	   bat "gradlew -Dsonar.analysis.mode "
      // bat "${scannerHome}/StartSonar.bat"
     }
-  */
-}
+ 
+} */
 }

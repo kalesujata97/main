@@ -60,7 +60,7 @@ node {
             
 	     )
 		
-        }*/
+        }
 	stage('SonarQube analysis') {
    // ws('C:\\Apps\\Jenkins\\jobs\\trial') {
     // requires SonarQube Scanner 2.8+
@@ -69,6 +69,6 @@ node {
 	   bat "gradlew -Dsonar.analysis.mode "
      // bat "${scannerHome}/StartSonar.bat"
     }
-  
+  */
 }
 }

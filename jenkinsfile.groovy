@@ -29,7 +29,7 @@ def getTestSummary = { ->
 }
 
 
-node("slave") {
+node {
 	stage('Payment Testsuite Execution'){
 		checkout([$class: 'GitSCM',
 		branches: [[name: '*/master']],

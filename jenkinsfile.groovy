@@ -41,7 +41,7 @@ node("slave") {
                       
                  "clean test -Ppayment  "
 	
-		publishHTML([reportDir: 'test-output', reportFiles: 'PaymentServiceReport.html', reportName: 'Payment Test-suite Report'])
+		//publishHTML([reportDir: 'test-output', reportFiles: 'PaymentServiceReport.html', reportName: 'Payment Test-suite Report'])
 		
         	
 		step $class: 'JUnitResultArchiver', testResults: 'build/test-results/test/TEST-*.xml'

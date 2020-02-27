@@ -44,8 +44,8 @@ node {
 		//publishHTML([reportDir: 'test-output', reportFiles: 'PaymentServiceReport.html', reportName: 'Payment Test-suite Report'])
 		
         	
-		step $class: 'JUnitResultArchiver', testResults: 'build/test-results/test/TEST-*.xml'
-		getTestSummary()
+		//step $class: 'JUnitResultArchiver', testResults: 'build/test-results/test/TEST-*.xml'
+		//getTestSummary()
 		
 	
 	}

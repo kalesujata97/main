@@ -29,13 +29,12 @@ def getTestSummary = { ->
 }
 
 
-node {
+node("slave") {
 	stage('Payment Testsuite Execution'){
 		checkout([$class: 'GitSCM',
 		branches: [[name: '*/master']],
 		userRemoteConfigs: [
-		[url: 'https://github.com/SujataKale97/test.git',
-		credentialsId: 'ea4c3770-b2ed-4639-9ffc-cc3e586e454c']
+		[url: 'https://github.com/SujataKale97/test.git']
 		]])  
 			
                  bat ' gradlew ' +
